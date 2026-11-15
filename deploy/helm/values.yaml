@@ -1,0 +1,19 @@
+replicaCount: 3
+image:
+  repository: registry.bank.internal/cards/cardholder-web
+  tag: 4.12.0
+ingress:
+  enabled: true
+  className: public-nginx
+  hosts:
+    - host: cardholder.eu.bank.example
+      paths:
+        - path: /
+          pathType: Prefix
+env:
+  ISSUING_API_URL: http://issuing-api.cards.svc.cluster.local:8080
+  CARD_CONTROLS_URL: https://ctl-gw.eu1.bank.internal
+  AMQP_URL: amqps://cardholder-web@mq-eu.bank.internal:5671/cards
+  DIRECTORY_URL: ldaps://dir-eu.bank.internal:636
+  CHECKOUT_URL: https://pay-gw.eu.bank.internal
+  ADDRESS_CHECK_URL: https://api.addressly.io

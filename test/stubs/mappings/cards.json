@@ -1,0 +1,7 @@
+{
+  "request": { "method": "GET", "urlPath": "/api/v2/customers/C-1001/cards" },
+  "response": {
+    "status": 200,
+    "jsonBody": { "items": [{ "cardId": "K-1", "maskedPan": "4970 **** **** 1234", "status": "ACTIVE", "productCode": "VISA-CLASSIC" }] }
+  }
+}
